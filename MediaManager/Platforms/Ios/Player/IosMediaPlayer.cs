@@ -102,7 +102,7 @@ namespace MediaManager.Platforms.Ios.Player
             var audioSession = AVAudioSession.SharedInstance();
             try
             {
-                audioSession.SetCategory(AVAudioSession.CategoryPlayback);
+                audioSession.SetCategory(AVAudioSessionCategoryOptions.Playback, AVAudioSessionCategoryOptions.MixWithOthers);
                 audioSession.SetActive(true, out var activationError);
                 if (activationError != null)
                     Console.WriteLine("Could not activate audio session {0}", activationError.LocalizedDescription);
